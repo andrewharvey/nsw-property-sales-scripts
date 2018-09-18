@@ -1,0 +1,35 @@
+#!/bin/sh
+
+unzip_dir="data_unzip"
+rm -rf "$unzip_dir"
+mkdir -p "$unzip_dir"
+
+for f in data/__psi/*/*.zip ; do
+    period=`echo $f | cut -d'/' -f3`
+    date=`echo $f | cut -d'/' -f4 | sed 's/\.zip$//'`
+    dir="$unzip_dir/$period/$date"
+    mkdir -p "$dir"
+    echo unzip $f into $dir
+    unzip -d "$dir" $f
+done
+
+for year in `seq 2001 2014` ; do
+    mv $unzip_dir/yearly/$year/$year/* $unzip_dir/yearly/$year/
+    rm -rf $unzip_dir/yearly/$year/$year/
+done
+mkdir -p $unzip_dir/yearly/2001_archived
+mv $unzip_dir/yearly/2001/Archive\ Sales\ 2001/* $unzip_dir/yearly/2001_archived/
+mv $unzip_dir/yearly/2001 $unzip_dir/yearly/2001_current
+
+current_year=`date +%Y`
+for year in `seq 2015 $current_year` ; do
+    if [ -d $unzip_dir/yearly/$year/ ] ; then
+        for f in $unzip_dir/yearly/$year/*.zip ; do
+            date=`basename $f '.zip'`
+            dir="$unzip_dir/yearly/$year/$date"
+            mkdir -p "$dir"
+            unzip -j -d "$dir" $f
+            rm $f
+        done
+    fi
+done

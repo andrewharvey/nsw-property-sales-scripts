@@ -1,0 +1,34 @@
+RU1,Primary Production,Rural
+RU2,Rural Landscape,Rural
+RU3,Forestry,Rural
+RU4,Rural Small Holdings,Rural
+RU5,Village,Rural
+RU6,Transition,Rural
+R1,General Residential,Residential
+R2,Low Density Residential,Residential
+R3,Medium Density Residential,Residential
+R4,High Density Residential,Residential
+R5,Large Lot Residential,Residential
+B1,Neighbourhood Centre,Business
+B2,Local Centre,Business
+B3,Commercial Core,Business
+B4,Mixed Use,Business
+B5,Business Development,Business
+B6,Enterprise Corridor,Business
+B7,Business Park,Business
+IN1,General Industrial,Industrial
+IN2,Light Industrial,Industrial
+IN3,Heavy Industrial,Industrial
+IN4,Working Waterfront,Industrial
+SP1,Special Activities,Special Purpose
+SP2,Infrastructure,Special Purpose
+SP3,Tourist,Special Purpose
+RE1,Public Recreation,Recreation
+RE2,Private Recreation,Recreation
+E1,National Parks and Nature Reserves,Environment Protection
+E2,Environmental Conservation,Environment Protection
+E3,Environmental Management,Environment Protection
+E4,Environmental Living,Environment Protection
+W1,Natural Waterways,Waterway
+W2,Recreational Waterways,Waterway
+W3,Working Waterways,Waterway

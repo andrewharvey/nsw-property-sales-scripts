@@ -10,7 +10,7 @@ for f in data/__psi/*/*.zip ; do
     dir="$unzip_dir/$period/$date"
     mkdir -p "$dir"
     echo unzip $f into $dir
-    unzip -d "$dir" $f
+    unzip -q -d "$dir" $f
 done
 
 for year in `seq 2001 2014` ; do
@@ -28,7 +28,7 @@ for year in `seq 2015 $current_year` ; do
             date=`basename $f '.zip'`
             dir="$unzip_dir/yearly/$year/$date"
             mkdir -p "$dir"
-            unzip -j -d "$dir" $f
+            unzip -q -j -d "$dir" $f
             rm $f
         done
     fi

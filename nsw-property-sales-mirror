@@ -5,5 +5,5 @@ wget -O index.html 'https://valuation.property.nsw.gov.au/embed/propertySalesInf
 lynx --dump --listonly index.html | grep 'http' | grep '__psi' | cut -f2- -d'.' | tr -d ' ' | sort | uniq > index.txt
 
 mkdir -p data
-wget --input-file=index.txt --timestamping --directory-prefix=data --no-host-directories --force-directories
+wget --no-verbose --input-file=index.txt --timestamping --directory-prefix=data --no-host-directories --force-directories
 

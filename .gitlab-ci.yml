@@ -1,0 +1,19 @@
+image: debian:sid-slim
+
+stages:
+    - build
+
+build:
+    stage: build
+    script:
+        - apt-get -y update && apt-get -y install wget unzip postgresql postgis lynx pxz gdal-bin
+        - cp etc/pg_hba.conf /etc/postgresql/11/main/pg_hba.conf
+        - cp etc/postgresql_non_durable.conf /etc/postgresql/11/main/conf.d/
+        - service postgresql restart
+        - su -c 'createuser --superuser root' postgres
+        - make download unzip pgschema load sales property
+        - make dump csv
+    artifacts:
+        name: 'nsw-property-sales'
+        paths:
+            - output

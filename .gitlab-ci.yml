@@ -11,6 +11,7 @@ build:
         - cp etc/postgresql_non_durable.conf /etc/postgresql/11/main/conf.d/
         - service postgresql restart
         - su -c 'createuser --superuser root' postgres
+        - createdb root
         - make download unzip pgschema load sales property
         - make dump csv
     artifacts:
